@@ -13,9 +13,12 @@
 		18E16FBA1DC9B959001D5B64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E16FB81DC9B959001D5B64 /* Main.storyboard */; };
 		18E16FBC1DC9B959001D5B64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18E16FBB1DC9B959001D5B64 /* Assets.xcassets */; };
 		18E16FBF1DC9B959001D5B64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E16FBD1DC9B959001D5B64 /* LaunchScreen.storyboard */; };
+		18E16FC81DC9C1EB001D5B64 /* NFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E16FC71DC9C1EB001D5B64 /* NFCViewController.m */; };
+		255547F744AE4B6701700E10 /* libPods-BLEApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BF955137C74F5F7FD63AA9 /* libPods-BLEApplication.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BC5EF991F47FBB1BDF9AF9B /* Pods-BLEApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEApplication/Pods-BLEApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		18E16FAC1DC9B959001D5B64 /* BLEApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E16FB01DC9B959001D5B64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18E16FB21DC9B959001D5B64 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +29,10 @@
 		18E16FBB1DC9B959001D5B64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18E16FBE1DC9B959001D5B64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18E16FC01DC9B959001D5B64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18E16FC61DC9C1EB001D5B64 /* NFCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFCViewController.h; sourceTree = "<group>"; };
+		18E16FC71DC9C1EB001D5B64 /* NFCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFCViewController.m; sourceTree = "<group>"; };
+		A4202EE653806217B53A8EF8 /* Pods-BLEApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLEApplication/Pods-BLEApplication.release.xcconfig"; sourceTree = "<group>"; };
+		D1BF955137C74F5F7FD63AA9 /* libPods-BLEApplication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEApplication.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255547F744AE4B6701700E10 /* libPods-BLEApplication.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +52,8 @@
 			children = (
 				18E16FAE1DC9B959001D5B64 /* BLEApplication */,
 				18E16FAD1DC9B959001D5B64 /* Products */,
+				1B1736BA88E8A2A44061C73A /* Pods */,
+				E93360D3D3C08B6FB891173F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +77,8 @@
 				18E16FBD1DC9B959001D5B64 /* LaunchScreen.storyboard */,
 				18E16FC01DC9B959001D5B64 /* Info.plist */,
 				18E16FAF1DC9B959001D5B64 /* Supporting Files */,
+				18E16FC61DC9C1EB001D5B64 /* NFCViewController.h */,
+				18E16FC71DC9C1EB001D5B64 /* NFCViewController.m */,
 			);
 			path = BLEApplication;
 			sourceTree = "<group>";
@@ -79,6 +91,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1B1736BA88E8A2A44061C73A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0BC5EF991F47FBB1BDF9AF9B /* Pods-BLEApplication.debug.xcconfig */,
+				A4202EE653806217B53A8EF8 /* Pods-BLEApplication.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E93360D3D3C08B6FB891173F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1BF955137C74F5F7FD63AA9 /* libPods-BLEApplication.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18E16FC31DC9B959001D5B64 /* Build configuration list for PBXNativeTarget "BLEApplication" */;
 			buildPhases = (
+				C7BD778923E14A2E64F23D93 /* [CP] Check Pods Manifest.lock */,
 				18E16FA81DC9B959001D5B64 /* Sources */,
 				18E16FA91DC9B959001D5B64 /* Frameworks */,
 				18E16FAA1DC9B959001D5B64 /* Resources */,
+				E1F244669333F0A25A0516D0 /* [CP] Embed Pods Frameworks */,
+				E3E20AB029A3207FB06B3496 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,11 +178,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C7BD778923E14A2E64F23D93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E1F244669333F0A25A0516D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLEApplication/Pods-BLEApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3E20AB029A3207FB06B3496 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLEApplication/Pods-BLEApplication-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18E16FA81DC9B959001D5B64 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E16FC81DC9C1EB001D5B64 /* NFCViewController.m in Sources */,
 				18E16FB71DC9B959001D5B64 /* ViewController.m in Sources */,
 				18E16FB41DC9B959001D5B64 /* AppDelegate.m in Sources */,
 				18E16FB11DC9B959001D5B64 /* main.m in Sources */,
@@ -269,10 +350,12 @@
 		};
 		18E16FC41DC9B959001D5B64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BC5EF991F47FBB1BDF9AF9B /* Pods-BLEApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S6EBGVAJG2;
 				INFOPLIST_FILE = BLEApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jjh.BLEApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,10 +364,12 @@
 		};
 		18E16FC51DC9B959001D5B64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4202EE653806217B53A8EF8 /* Pods-BLEApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S6EBGVAJG2;
 				INFOPLIST_FILE = BLEApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jjh.BLEApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -310,6 +395,7 @@
 				18E16FC51DC9B959001D5B64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

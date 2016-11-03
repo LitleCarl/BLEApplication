@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,101 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGW-WP-apz">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="device_name_cell" id="K64-jZ-kxc">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K64-jZ-kxc" id="kyf-6H-nPt">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="UHf-Di-JaF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="qLy-Zh-vwK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FGW-WP-apz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1wA-Y5-rnF"/>
+                            <constraint firstAttribute="trailing" secondItem="FGW-WP-apz" secondAttribute="trailing" id="2tR-dG-mSM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FGW-WP-apz" secondAttribute="bottom" id="Amk-UJ-aC3"/>
+                            <constraint firstItem="FGW-WP-apz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hq0-wa-mOi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="FGW-WP-apz" id="1Y6-gn-hFV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AYd-jF-rYQ">
+            <objects>
+                <viewController storyboardIdentifier="NFCController" id="NwD-aL-ehb" customClass="NFCViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f3i-D5-Jh8"/>
+                        <viewControllerLayoutGuide type="bottom" id="uTt-dR-8Vj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4EC-DZ-Ve2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EbD-GH-Eud">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR4-NF-50K">
+                                <state key="normal" title="send"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UTF-8 Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW0-B9-dto">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr6-pv-XJ4">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxi-GL-aXn">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xxi-GL-aXn" firstAttribute="width" secondItem="EbD-GH-Eud" secondAttribute="width" id="2rL-Xx-cpI"/>
+                            <constraint firstItem="EbD-GH-Eud" firstAttribute="top" secondItem="f3i-D5-Jh8" secondAttribute="bottom" constant="133" id="9V2-Ok-h8R"/>
+                            <constraint firstItem="EbD-GH-Eud" firstAttribute="centerX" secondItem="4EC-DZ-Ve2" secondAttribute="centerX" id="AN4-hM-wSW"/>
+                            <constraint firstItem="EbD-GH-Eud" firstAttribute="width" secondItem="4EC-DZ-Ve2" secondAttribute="width" multiplier="0.68" id="BLe-An-pBb"/>
+                            <constraint firstItem="nr6-pv-XJ4" firstAttribute="leading" secondItem="EbD-GH-Eud" secondAttribute="leading" id="CH6-DO-7v5"/>
+                            <constraint firstItem="fW0-B9-dto" firstAttribute="leading" secondItem="EbD-GH-Eud" secondAttribute="leading" id="DXB-lI-dyF"/>
+                            <constraint firstItem="xxi-GL-aXn" firstAttribute="top" secondItem="EbD-GH-Eud" secondAttribute="bottom" constant="60" id="HCB-WL-A0Y"/>
+                            <constraint firstItem="xxi-GL-aXn" firstAttribute="centerX" secondItem="EbD-GH-Eud" secondAttribute="centerX" id="Qqx-X0-62a"/>
+                            <constraint firstItem="EbD-GH-Eud" firstAttribute="top" secondItem="fW0-B9-dto" secondAttribute="bottom" constant="8" id="ZTE-aw-hbN"/>
+                            <constraint firstItem="nr6-pv-XJ4" firstAttribute="top" secondItem="EbD-GH-Eud" secondAttribute="bottom" constant="35" id="jP7-lt-DJ2"/>
+                            <constraint firstItem="DR4-NF-50K" firstAttribute="leading" secondItem="EbD-GH-Eud" secondAttribute="trailing" constant="8" id="mVh-1q-hG1"/>
+                            <constraint firstItem="DR4-NF-50K" firstAttribute="centerY" secondItem="EbD-GH-Eud" secondAttribute="centerY" id="mzF-Q5-JlR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="notifyTextfield" destination="xxi-GL-aXn" id="vkk-rM-57y"/>
+                        <outlet property="sendButton" destination="DR4-NF-50K" id="4sm-sp-o3D"/>
+                        <outlet property="writeTextfield" destination="EbD-GH-Eud" id="oVT-IJ-qil"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IyI-qL-9dN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="687" y="36"/>
         </scene>
     </scenes>
 </document>
