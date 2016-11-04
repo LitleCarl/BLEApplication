@@ -37,6 +37,18 @@
     //设置蓝牙委托
     [self babyDelegate];
     
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"重新扫描" style:UIBarButtonItemStylePlain target:self action:@selector(rescan)];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+// 重新扫描
+- (void)rescan {
+    if (baby.centralManager.state == CBCentralManagerStatePoweredOn) {
+        self.pheripherals = [NSMutableArray new];
+        [self.mainTableView reloadData];
+        [baby cancelAllPeripheralsConnection];
+        baby.scanForPeripherals().begin().stop(10);
+    }
 }
 
 //设置蓝牙委托
