@@ -28,6 +28,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"扫描外设";
     
     self.pheripherals = [NSMutableArray new];
     
@@ -35,31 +36,34 @@
     baby = [BabyBluetooth shareBabyBluetooth];
     //设置蓝牙委托
     [self babyDelegate];
-    //设置委托后直接可以使用，无需等待CBCentralManagerStatePoweredOn状态
-    baby.scanForPeripherals().begin().stop(10);
     
-    [self setUpTrigger];
-}
-
-- (void)setUpTrigger {
-//    [RACObserve(self, pheripherals) subscribeNext:^(id x) {
-//        [_mainTableView reloadData];
-//    }];
 }
 
 //设置蓝牙委托
 -(void)babyDelegate{
-    
+    __weak typeof (self) weakSelf = self;
     //设置扫描到设备的委托
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         
-        if (![self.pheripherals containsObject:peripheral]) {
-            [self.pheripherals addObject:peripheral];
+        NSMutableArray *currentIDs = [NSMutableArray new];
+        [weakSelf.pheripherals enumerateObjectsUsingBlock:^(CBPeripheral * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [currentIDs addObject:obj.identifier];
+        }];
+        
+        if (![currentIDs containsObject:peripheral.identifier]) {
+            [weakSelf.pheripherals addObject:peripheral];
         }
         
-        [_mainTableView reloadData];
+        [weakSelf.mainTableView reloadData];
         
         NSLog(@"搜索到了设备:%@",peripheral.name);
+    }];
+    
+    [baby setBlockOnCentralManagerDidUpdateState:^(CBCentralManager *central) {
+        if (central.state == CBCentralManagerStatePoweredOn) {
+            //设置委托后直接可以使用，无需等待CBCentralManagerStatePoweredOn状态
+            baby.scanForPeripherals().begin().stop(10);
+        }
     }];
     
     //过滤器
@@ -71,30 +75,36 @@
         return NO;
     }];
     
+    [baby setFilterOnConnectToPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
+        return YES;
+    }];
+    
     //设置设备连接成功的委托,同一个baby对象，使用不同的channel切换委托回调
     [baby setBlockOnConnected:^(CBCentralManager *central, CBPeripheral *peripheral) {
         NSLog(@"设备：%@--连接成功", peripheral.name);
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
+        [baby cancelScan];
+        
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         NFCViewController *controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"NFCController"];
         
         controller.peripheral = peripheral;
-        
-        [self presentViewController:controller animated:YES completion:nil];
+        controller.title = peripheral.name;
+        [weakSelf.navigationController pushViewController:controller animated:YES];
     }];
     
     //设置设备连接失败的委托
     [baby setBlockOnFailToConnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
         NSLog(@"设备：%@--连接失败", peripheral.name);
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
 
     }];
     
     //设置设备断开连接的委托
     [baby setBlockOnDisconnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
         NSLog(@"设备：%@--断开连接", peripheral.name);
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
 
     }];
 }
@@ -104,7 +114,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    baby.having([self.pheripherals objectAtIndex:indexPath.row]).connectToPeripherals().discoverServices().discoverCharacteristics().begin();
+    baby.having([self.pheripherals objectAtIndex:indexPath.row]).then.connectToPeripherals().discoverServices().discoverCharacteristics().begin();
     
 }
 

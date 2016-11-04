@@ -10,7 +10,7 @@
 #import "BabyBluetooth.h"
 #import <ReactiveCocoa.h>
 #import <MBProgressHUD.h>
-
+#import "NSString+componentsByLength.h"
 @interface NFCViewController (){
     BabyBluetooth *baby;
 }
@@ -34,6 +34,18 @@
     [self setUpTrigger];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // 取消监听，断开连接
+    if (self.peripheral && self.notifyChar) {
+        [baby cancelNotify:self.peripheral characteristic:self.notifyChar];
+    }
+    if (self.peripheral) {
+        [baby cancelPeripheralConnection:self.peripheral];
+    }
+}
+
 - (void)setUpTrigger {
     baby = [BabyBluetooth shareBabyBluetooth];
     
@@ -51,10 +63,6 @@
                         // 接收到新的Notify
                         self.notifyTextfield.text = [[NSString alloc] initWithData:characteristics.value encoding:NSUTF8StringEncoding];
                     }];
-                    
-                    [weakSelf.rac_willDeallocSignal subscribeNext:^(id x) {
-                        [baby cancelNotify:self.peripheral characteristic:self.notifyChar];
-                    }];
                 }
                 else if ([obj.UUID.UUIDString hasPrefix:@"85BD1FAB"]) {
                     weakSelf.writeChar = obj;
@@ -66,7 +74,12 @@
     [[[self.sendButton rac_signalForControlEvents:UIControlEventTouchUpInside] filter:^BOOL(id value) {
         return self.writeTextfield.text.length > 0 && self.writeChar;
     }] subscribeNext:^(id x) {
-        [self.peripheral writeValue:[self.writeTextfield.text dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.writeChar type:CBCharacteristicWriteWithResponse];
+        NSArray *subStrs = [self.writeTextfield.text componentSaparetedByLength:15];
+        [subStrs enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *data = [NSString stringWithFormat:@"%@%@", obj, (idx + 1) == subStrs.count ? @"" : @"_"];
+            [self.peripheral writeValue:[data dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.writeChar type:CBCharacteristicWriteWithResponse];
+        }];
+        
     }];
     
     [baby setBlockOnDidWriteValueForCharacteristic:^(CBCharacteristic *characteristic, NSError *error) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1859ECD51DCC2499000B69AB /* NSString+componentsByLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859ECD41DCC2499000B69AB /* NSString+componentsByLength.m */; };
 		18E16FB11DC9B959001D5B64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E16FB01DC9B959001D5B64 /* main.m */; };
 		18E16FB41DC9B959001D5B64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E16FB31DC9B959001D5B64 /* AppDelegate.m */; };
 		18E16FB71DC9B959001D5B64 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E16FB61DC9B959001D5B64 /* ViewController.m */; };
@@ -19,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		0BC5EF991F47FBB1BDF9AF9B /* Pods-BLEApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEApplication/Pods-BLEApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		1859ECD31DCC2499000B69AB /* NSString+componentsByLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+componentsByLength.h"; sourceTree = "<group>"; };
+		1859ECD41DCC2499000B69AB /* NSString+componentsByLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+componentsByLength.m"; sourceTree = "<group>"; };
 		18E16FAC1DC9B959001D5B64 /* BLEApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E16FB01DC9B959001D5B64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18E16FB21DC9B959001D5B64 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 				18E16FAF1DC9B959001D5B64 /* Supporting Files */,
 				18E16FC61DC9C1EB001D5B64 /* NFCViewController.h */,
 				18E16FC71DC9C1EB001D5B64 /* NFCViewController.m */,
+				1859ECD31DCC2499000B69AB /* NSString+componentsByLength.h */,
+				1859ECD41DCC2499000B69AB /* NSString+componentsByLength.m */,
 			);
 			path = BLEApplication;
 			sourceTree = "<group>";
@@ -142,7 +147,7 @@
 				TargetAttributes = {
 					18E16FAB1DC9B959001D5B64 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = S6EBGVAJG2;
+						DevelopmentTeam = 48QZ344N3S;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -234,6 +239,7 @@
 				18E16FC81DC9C1EB001D5B64 /* NFCViewController.m in Sources */,
 				18E16FB71DC9B959001D5B64 /* ViewController.m in Sources */,
 				18E16FB41DC9B959001D5B64 /* AppDelegate.m in Sources */,
+				1859ECD51DCC2499000B69AB /* NSString+componentsByLength.m in Sources */,
 				18E16FB11DC9B959001D5B64 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,8 +358,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BC5EF991F47FBB1BDF9AF9B /* Pods-BLEApplication.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S6EBGVAJG2;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				DEVELOPMENT_TEAM = 48QZ344N3S;
 				INFOPLIST_FILE = BLEApplication/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -366,8 +372,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4202EE653806217B53A8EF8 /* Pods-BLEApplication.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S6EBGVAJG2;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				DEVELOPMENT_TEAM = 48QZ344N3S;
 				INFOPLIST_FILE = BLEApplication/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
